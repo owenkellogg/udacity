@@ -25,6 +25,12 @@ class Vector(object):
         new_coordinates.append(self.coordinates[i] + vector.coordinates[i])
       return Vector(new_coordinates)
 
+    def subtract(self, vector):
+      new_coordinates = []
+      for i in range(len(self.coordinates)):
+        new_coordinates.append(self.coordinates[i] - vector.coordinates[i])
+      return Vector(new_coordinates)
+
     def scalar_multiply(self, scalar):
         new_coordinates = []
         for i in range(len(self.coordinates)):

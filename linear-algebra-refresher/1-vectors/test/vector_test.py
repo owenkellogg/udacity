@@ -13,6 +13,16 @@ class TestVector(unittest.TestCase):
         self.assertEqual(third_vector.coordinates[1], 4)
         self.assertEqual(third_vector.coordinates[2], 6)
 
+    def test_subtract(self):
+
+        first_vector = Vector([1,2,3])
+        second_vector = Vector([2,2,3])
+        third_vector = first_vector.subtract(second_vector)
+
+        self.assertEqual(third_vector.coordinates[0], -1)
+        self.assertEqual(third_vector.coordinates[1], 0)
+        self.assertEqual(third_vector.coordinates[2], 0)
+
     def test_scalar_multiply(self):
  
         original_vector = Vector([4,5,6]) 
