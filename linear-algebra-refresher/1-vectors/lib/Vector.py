@@ -1,3 +1,4 @@
+from math import sqrt
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -36,4 +37,10 @@ class Vector(object):
         for i in range(len(self.coordinates)):
             new_coordinates.append(self.coordinates[i] * scalar)
         return Vector(new_coordinates)
+
+    def magnitude(self):
+        sum = 0
+        for i in range(len(self.coordinates)):
+            sum += self.coordinates[i] * self.coordinates[i]
+        return sqrt(sum)
           

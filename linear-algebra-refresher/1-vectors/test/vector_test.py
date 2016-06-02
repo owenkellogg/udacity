@@ -33,5 +33,13 @@ class TestVector(unittest.TestCase):
         self.assertEqual(new_vector.coordinates[1], 10)
         self.assertEqual(new_vector.coordinates[2], 12)
 
+    def test_magnitude(self):
+
+        vector1 = Vector([3,4])
+        self.assertEqual(vector1.magnitude(), 5)
+
+        vector2 = Vector([8,15])
+        self.assertEqual(vector2.magnitude(), 17)
+
 if __name__ == '__main__':
     unittest.main()
