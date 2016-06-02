@@ -43,4 +43,11 @@ class Vector(object):
         for i in range(len(self.coordinates)):
             sum += self.coordinates[i] * self.coordinates[i]
         return sqrt(sum)
-          
+
+    def direction(self):
+        magnitude = self.magnitude()
+        new_coordinates = []
+        for i in range(len(self.coordinates)):
+            new_coordinates.append(self.coordinates[i] / magnitude)
+        return Vector(new_coordinates)
+
