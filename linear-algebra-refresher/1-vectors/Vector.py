@@ -19,3 +19,9 @@ class Vector(object):
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
+    def add(self, vector):
+      new_coordinates = []
+      for i in range(len(self.coordinates)):
+        new_coordinates.append(self.coordinates[i] + vector.coordinates[i])
+      return Vector(new_coordinates)
+
