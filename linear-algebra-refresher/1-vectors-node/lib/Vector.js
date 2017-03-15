@@ -73,10 +73,11 @@ class Vector {
   }
 
   direction() {
-    // return the unit vector
-    let unitVector = this.divide(this.magnitude());
+    return this.unitVector();
+  }
 
-    return unitVector;
+  unitVector() {
+    return this.divide(this.magnitude());
   }
 
   equals(vector) {
@@ -99,6 +100,13 @@ class Vector {
 
   isOrthagonal(vector) {
     return this.dotProduct(vector) === 0;
+  }
+
+  projectOnto(vector) {
+    let dotProduct = this.dotProduct(vector.unitVector());
+
+    return vector.unitVector().multiply(dotProduct);
+
   }
 }
 

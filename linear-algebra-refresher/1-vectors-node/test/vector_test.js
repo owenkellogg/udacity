@@ -122,6 +122,20 @@ describe("Vector", () => {
 
     });
 
+    describe("Projecting Vectors", () => {
+
+      it("vector.projectOnto(vector) should return a vector", () => {
+
+        let v1 = new Vector([3.039, 1.879]);
+        let v2 = new Vector([0.825, 2.036]);
+
+        let projection = v1.projectOnto(v2);
+
+        assert(projection);
+      });
+
+    });
+
   });
 
 });
