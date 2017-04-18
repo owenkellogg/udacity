@@ -1,14 +1,18 @@
+#pragma once
 #include <vector>
 
 class Vector {
 
-
   public:
     std::vector<double> mData;
+
+    Vector();
+    Vector(std::vector<double> data);
+
     double magnitude();
-    void print();
     double angleDegrees();
     double angleRadians();
+
     Vector dotProduct(Vector v);
     Vector plus(Vector v);
     Vector minus(Vector v);
@@ -16,9 +20,10 @@ class Vector {
     Vector divide(Vector v);
     Vector direction();
     Vector unitVector();
+
     bool isEqual(Vector v);
     bool isParallel(Vector v);
     bool isOrthagonal(Vector v);
 
-    Vector(std::vector<double> data);
+    void print();
 };

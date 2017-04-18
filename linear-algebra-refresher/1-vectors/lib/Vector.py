@@ -48,6 +48,6 @@ class Vector(object):
         magnitude = self.magnitude()
         new_coordinates = []
         for i in range(len(self.coordinates)):
-            new_coordinates.append(self.coordinates[i] / magnitude)
-        return Vector(new_coordinates)
+            new_coordinates.append(self.coordinates[i] / magnitude) 
+        return Vector(new_coordinates)  
 

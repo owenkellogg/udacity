@@ -1,3 +1,4 @@
+#pragma once
 #include "Vector.h"
 #include <iostream>
 #include <vector>
@@ -30,6 +31,10 @@ Vector Vector::plus(Vector v) {
 
 Vector::Vector(std::vector<double> data) {
   mData = data;
+};
+
+Vector::Vector() {
+  mData = std::vector<double> {0, 0, 0};
 };
 
 void Vector::print() {

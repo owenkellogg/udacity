@@ -136,6 +136,61 @@ describe("Vector", () => {
 
     });
 
+    describe("Adding and Subtracting Vectors", () => {
+      it("vector.plus(vector) should return a vector", () => {
+
+        let v1 = new Vector([1,2,3]);
+        let v2 = new Vector([2,4,6]);
+
+        let v3 = v1.plus(v2); 
+
+        assert(v3.equals(new Vector([3,6,9])));
+      });
+
+      it("vector.minus(vector) should return a vector", () => {
+        let v1 = new Vector([1,2,3]);
+        let v2 = new Vector([2,4,6]);
+
+        let v3 = v1.minus(v2); 
+
+        assert(v3.equals(new Vector([-1,-2,-3])));
+
+      });
+
+    });
+
+    describe("Computing the Cross Product of Two Vectors", () => {
+
+      it("should compute the cross product as vector", () => {
+
+        let v1 = new Vector([8.462, 7.893, -8.187]);
+        let v2 = new Vector([6.984, -5.975, 4.778]);
+
+        let crossProduct = v1.crossProduct(v2);
+
+        assert(crossProduct.equals(new Vector([-11.204570999999994, -97.609444, -105.68516199999999])));
+      });
+
+      it("should compute the area of the parallelogram formed by the two vectors", () => {
+
+        let v1 = new Vector([-8.987, -9.838, 5.031]);
+        let v2 = new Vector([-4.268, -1.861, -8.866]);
+
+        let area = v1.crossProductParallelogram(v2); 
+
+        assert.strictEqual(area, 142.122221);
+      });
+
+      it("should compute the area of the triangle formed by the two vectors", () => {
+
+        let v1 = new Vector([1.5, 9.547, 3.691]);
+        let v2 = new Vector([-6.007, 0.124, 5.772]);
+
+        let area = v1.crossProductTriangle(v2);
+        
+        assert.strictEqual(area, 0);
+      });
+    });
   });
 
 });

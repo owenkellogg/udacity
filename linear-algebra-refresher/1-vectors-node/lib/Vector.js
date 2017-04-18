@@ -54,6 +54,21 @@ class Vector {
     return parseFloat(sum.toFixed(6));
   }
 
+  plus(vector) {
+    let data = _.zip(this.data, vector.data).map(pair => {
+      return pair[0] + pair[1];
+    });
+    return new Vector(data);
+  }
+
+  minus(vector) {
+    let data = _.zip(this.data, vector.data).map(pair => {
+      return pair[0] - pair[1];
+    });
+
+    return new Vector(data);
+  }
+
   divide(n) {
     let data = this.data.map(d => {
       if (n === 0) {
@@ -65,9 +80,9 @@ class Vector {
     return new Vector(data);
   }
 
-  multiply(n) {
+  multiply(scalar) {
     let data = this.data.map(d => {
-      return d * n;
+      return d * scalar;
     });
     return new Vector(data);
   }
@@ -104,9 +119,50 @@ class Vector {
 
   projectOnto(vector) {
     let dotProduct = this.dotProduct(vector.unitVector());
-
     return vector.unitVector().multiply(dotProduct);
+  }
 
+  projectComponentPerpendicular(vecto4) {
+    return this.projectOnto(vector);
+  }
+
+  projectComponentParallel(vector) {
+    let projection = this.projectOnto(vector);
+    return this.minus(projection);
+  }
+
+  crossProduct(vector) {
+    let data = [];
+
+    let x1 = this.data[0];
+    let x2 = vector.data[0];
+
+    let y1 = this.data[1];
+    let y2 = vector.data[1];
+
+    let z1 = this.data[2];
+    let z2 = vector.data[2];
+
+    data[0] = y1*z2 - y2*z1;
+    data[1] = (x1*z2 - x2*z1) * -1;
+    data[2] = x1*y2 - x2*y1;
+
+    return new Vector(data);
+  }
+
+  crossProductParallelogram(vector) {
+    let crossProduct = this.crossProduct(vector);
+    let length = crossProduct.magnitude();
+
+    if (length > 0) {
+      return length;
+    } else {
+      return length * -1;
+    }
+  }
+
+  crossProductTriangle(vector) {
+    return this.crossProductParallelogram(vector) / 2;
   }
 }
 
